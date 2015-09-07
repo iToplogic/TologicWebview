@@ -1,0 +1,48 @@
+<!--
+ file: app.html
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name = "viewport" content = "width = device-width"/>
+        <title>Hybrid App</title>
+        <script type="text/javascript">
+            
+            function callJavascriptFromObjectiveC() {
+                alert('called javascript function by objective-c');
+            }
+        
+        
+            //잘되는거
+            function callObjectiveCFromJavascript(){
+                window.location="jscall://callObjectiveCFromJavascript";
+            }
+        
+            //안되는거 jscall:// 문자열입력해서 전송
+            function callObjectiveCFromJSON(){
+                window.location='jscall://{"type":"LOGIN","user_id":"itunes","token":"8QO4EuRml11CwJUV+lrK2uqIxrI50Wo2PHlmevc898P9WxvWQzLQ/Ff6dOD19MNKK9+iqK37qv/XpiBIM4zQTC+7VjvI/hcGMbt+vLpP0fDXQxHBWxCL65faV3iiL9M9","is_login":"TRUE"}';
+            }
+        
+        
+        function callObjectiveCFromJSON(){
+            window.location='jscall://setProfileJsonData?dic={"nick_idx":""+nick_idx+"","nickname":""+nickname+"","sex":""+sex+"","byear":""+byear+"","bmonth":""+bmonth+"","bday":""+bday+"","stature":""+stature+"","weight":""+weight+"","goal_weight":""+goal_weight+"","goal_term":""+goal_term+"","goal_term_type":""+goal_term_type+"","active_mass":""+active_mass+"","day_target_cal":""+day_target_cal+"","day_exercise_cal":""+day_exercise_cal+""}&callback=';
+        }
+
+        function kk(){
+           window.location='usedMarket://{"type":"LOGIN","user_id":"admin"}';
+        }
+        
+            </script>
+    </head>
+    <body>
+        <div id="container">
+            <h3>Hello Hybrid App </h3>
+            
+            <button onclick="callObjectiveCFromJavascript();">로그인(잘되는거)</button>
+            <button onclick="callObjectiveCFromJSON();">로그인(보내고싶은JSON)</button>
+            <button onclick="kk();">로그인(보내고싶은kk)</button>
+            
+        </div>
+    </body>
+</html>
